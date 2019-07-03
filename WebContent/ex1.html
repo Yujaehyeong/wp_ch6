@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+
+var number1 = 5;
+var number2 = new Number(5);
+
+
+// 내장타입 (number, boolean, string, function, (array)없음-> 형태만 배열, date....)
+
+var n = 10;
+var f = 3.14;
+var b = true;
+var s = 'hello world';
+var fn = function() {};
+var a = [] // Array 타입은 없다.
+var o = {}
+
+
+
+console.log(n + ":" + typeof(n));
+console.log(f + ":" + typeof(f));
+console.log(b + ":" + typeof(b));
+console.log(s + ":" + typeof(s));
+console.log(fn + ":" + typeof(fn));
+console.log(a + ":" + typeof(a));
+console.log(o + ":" + typeof(o));
+
+
+//new 생성자함수()을 사용해서 객체를 생성할 때,
+var n2 = new Number(5);
+var f2 = new Number(3.14);
+var b2 = new Number(false);
+var s2 = new String('hello world');
+var fn2 = new Function('a', 'b', 'return a + b') // a, b는 파라미터 return a + b는 반환값
+var o2= new Object();
+var a2 = new Array();
+
+
+console.log(n + ":" + typeof(n2));
+console.log(f + ":" + typeof(f2));
+console.log(b + ":" + typeof(b2));
+console.log(s + ":" + typeof(s2));
+console.log(fn + ":" + typeof(fn2));
+console.log(a + ":" + typeof(a2));
+console.log(o + ":" + typeof(o2));
+
+function mDown( obj ) {
+  obj.style.backgroundColor="#1ec5e5";
+  obj.innerHTML="버튼을 떼주세요.";
+}
+function mUp( obj ) {
+  obj.style.backgroundColor="#D94A38";
+  obj.innerHTML="클릭하세요!";
+}
+
+</script>
+</head>
+<body>
+<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">클릭하세요!</div>
+</body>
+</html> 
