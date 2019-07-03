@@ -5,15 +5,42 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 <script>
-function h(){
-	var v = "...";
-}
 
-h();
-v();
+var myVar;
+var myVar2 = null;
+
+console.log(myVar+ ":"+ myVar2)
+
+console.log(myVar == myVar2); // 값만 비교
+console.log(myVar === myVar2); // 값과 type까지 비교
+
+// == (!=, equality, 값의 등치성, 형변환 o)
+console.log("2"==2);
+console.log(true==1);
+console.log('abc'== new String('abc'));
+
+//형변환
+console.log("2" + 2); // int가 string 형태로 형변환됨 22
+console.log(2 + "2"); // int가 string 형태로 형변환됨 22
+console.log(true + 10);
+console.log('abc' + new String('abc'));
+
+
+// ===(!==, identity, 객체동일성, 형변환x)
+console.log("2"===2);
+console.log(true===1);
+console.log('abc'=== new String('abc'));
+
+// 추천:
+// == 연산자를 사용할 때는 엄격하게 형변환을 하여
+// 피연산자의 type을 맞춰준다.
+str = "5";
+console.log(parseInt(str) == 5);
+
+
 </script>
 </head>
 <body>
-
+	<h1>null VS undefined</h1>
 </body>
 </html>

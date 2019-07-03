@@ -29,7 +29,7 @@ console.log(a + ":" + typeof(a));
 console.log(o + ":" + typeof(o));
 
 
-//new 생성자함수()을 사용해서 객체를 생성할 때,
+//new 생성자함수()을 사용해서 객체를 생성할 때 -> object 형태로됨.
 var n2 = new Number(5);
 var f2 = new Number(3.14);
 var b2 = new Number(false);
@@ -47,10 +47,25 @@ console.log(fn + ":" + typeof(fn2));
 console.log(a + ":" + typeof(a2));
 console.log(o + ":" + typeof(o2));
 
+// 내장타입의 객체는 확장이 불가능하다.
+n.myVal = 20;
+console.log(n.myVal);
+
+// object 타입의 객체는 확장이 가능하다.
+n2.myVal = 20;
+console.log(n2.myVal);
+
+// 브라우저 내장객체 console
+console.log('로그입니다.');
+console.warn('경고입니다.');
+console.error('에러입니다.');
+console.info('정보입니다.');
+
 function mDown( obj ) {
   obj.style.backgroundColor="#1ec5e5";
   obj.innerHTML="버튼을 떼주세요.";
 }
+
 function mUp( obj ) {
   obj.style.backgroundColor="#D94A38";
   obj.innerHTML="클릭하세요!";
