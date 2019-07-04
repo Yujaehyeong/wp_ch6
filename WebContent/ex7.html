@@ -4,13 +4,101 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-var a1 = new Array(10);// 동적으로 늘어나기때문에 지정하는것이 의미가 없음.
-a1[0] = 0;
-a1[1] = 1;
-a1[20] = 20;
+	var a1 = new Array(10);// 동적으로 늘어나기때문에 지정하는것이 의미가 없음.
+	a1[0] = 0;
+	a1[1] = 1;
 
-console.log('Array a1: '+ a1);
-console.log('a1.length: '+ a1.length);
+	console.log('a1.length: ' + a1.length);
+
+	// 동적으로 크기가 변하는 배열 (에러 x)
+	// new Array(size):
+	// size를 주는 것은 별다른 의미가 없지만,
+	// 고정사이즈를 주면 성능이 향상
+	a1[20] = 20;
+	console.log('Array a1: ' + a1);
+
+	// 배열정의
+	// 2. literal
+	var a2 = [];
+	console.log('a2 length: ' + a2.length);
+
+	//내부 저장 타입은 정해져 있지않다..ㅠㅠ
+	// 중간에 비어있는 배열 요소는 undefined ..
+	a2[0] = 10;
+	a2[1] = 'Hello World';
+	a2[4] = {
+		name : '둘리',
+	}
+
+	console.log(a2);
+
+	// 초기화
+
+	var a3 = [ 1, 'abc', true ];
+	console.log('a3: ' + a3);
+
+	var a4 = new Array(1, 'abc', true);
+	console.log('a4: ' + a4);
+
+	// 순회
+	for (var i = 0; i < a4.length; i++) {
+
+		console.log(a4[i]);
+
+	}
+
+	// 배열함수 - concat
+	var colors = [ 'black', 'white', 'yellow' ];
+	var fruits = [ 'mango', 'banana', 'apple' ];
+
+	var test = fruits.concat(colors);
+	console.log(test); // (6) ["mango", "banana", "apple", "black", "white", "yellow"]
+
+	// 배열함수 - join
+	var str = fruits.join(',');
+	console.log(str); // mango,banana,apple
+
+	// 배열함수 - pop(stack)
+	var color = colors.pop();
+	console.log(color); // yellow
+	console.log(colors); // (2) ["black", "white"]
+
+	// 배열함수 - push(stack)
+	colors.push('red');
+	console.log(colors); // ["black", "white", "red"]
+
+	// 배열함수 reverse
+	fruits.reverse();
+	console.log(fruits); // (3) ["apple", "banana", "mango"]
+
+	// 배열함수 shift
+	var numbers = [ 1000, 2000, 3000, 4000 ]
+	numbers.shift(); // 왼쪽으로 밀어버림 good
+	console.log(numbers); // (3) [2000, 3000, 4000]
+
+	// 배열 함수 - slice
+	var numbers2 = numbers.slice(0, 2);
+	console.log(numbers2); // (2) [2000, 3000]
+
+	// 배열 함수 - sort
+	var numbers = [ 5000, 2000, 1000, 3000, 4000 ]
+	numbers.sort();
+	console.log(numbers); // (5) [1000, 2000, 3000, 4000, 5000]
+	
+	// 배열함수 - splice
+	console.log(fruits); // (3) ["apple", "banana", "mango"]
+	fruits2 = fruits.splice(1/*index*/, 2/*count*/); // 시작인덱스부터 카운트 개수만큼 잘라서 반환 본래의 배열은 잘린 요소를 제외하고 남아있음
+	console.log(fruits); //["apple"]
+	console.log(fruits2); // (2) ["banana", "mango"]
+	
+	// 배열을 리스트로 사용하기
+	// insert(index, val), remove(index)
+	
+	a = [1, 2, 4];
+	a.insert(2, 3);
+	console.log(a);
+	a.remove(3);
+	console.log(a);
 </script>
 </head>
 <body>
