@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var url = 'http://localhost:8080/mysite3?n=안"대"혁&e=hi@naver.com';
+
+	// Deprecated
+	// 사용금지
+	var url2 = escape(url); 
+	console.log(url2);
+
+	// encodeURI
+	// 전체 URL -> parameter 부분만 인코딩
+	var url3 = encodeURI(url);
+	console.log("url3:" + url3);
+	
+	// client side redirection
+	// location.href = url2;
+	
+	// encodeURIComponent
+	// 전체 URL -> 전체 URL encoding
+	var url4 = encodeURIComponent(url);
+	console.log(url4);
+	
+	// encodeURIComponent 사용 예제
+	var url = 'http://localhost:8080/mysite3';
+	var queryString = 'n='+encodeURIComponent('안"대"혁') +'&e='+ encodeURIComponent('hi@naver.com');
+
+	var url5 = url + queryString;
+	console.log(url5);
+	
+	var toQueryString = function (o) {
+		var qs = [];
+		for(key in o){
+			qs.push(key + "=" + encodeURIComponent(o[key]));
+		}
+		console.log(qs);
+		
+		return "?"+qs.join('&');
+	}
+	
+	
+	var url6 = url + toQueryString({
+		name: "홍길동",
+		e : "hi@naver.com"
+	});
+	
+	console.log("url6: "+ url6); 
+	
+	setTimeout(function () {
+		location.href = url6;
+	}, 5000);
+	
+	
+
+	
+	
+</script>
+</head>
+<body>
+	<h1>Escape String</h1>
+</body>
+</html>

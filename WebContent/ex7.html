@@ -34,7 +34,6 @@
 	console.log(a2);
 
 	// 초기화
-
 	var a3 = [ 1, 'abc', true ];
 	console.log('a3: ' + a3);
 
@@ -43,9 +42,7 @@
 
 	// 순회
 	for (var i = 0; i < a4.length; i++) {
-
 		console.log(a4[i]);
-
 	}
 
 	// 배열함수 - concat
@@ -129,10 +126,34 @@
 	console.log(map['three']); // 3
 	console.log(map); // {one: 1, two: 2, three: 3}
 	
+	// 객체 함수
+	var str6 = "string1 string2 string3";
+	console.log(str6.length); // 23
 	
+	var index = str6.indexOf('string4');
+	console.log(index); // -1
+	
+	index = str6.indexOf('string2')
+	console.log(index); // 8
+	
+	var str7 = str6.substr(index);
+	console.log(str7); // string2 string3
+	
+	var str8 = str6.substr(index, 7/*count*/);
+	console.log(str8); // string2
+	
+	var str9 = str6.substring(index, 10/*last index*/);
+	console.log(str9); // st
+	
+	var a = str6.split(' ')
+	console.log(a); // (3) ["string1", "string2", "string3"]
+	
+	var str10 = 'abcdefg';
+	a = str10.split(':');
+	console.log(a); // ["abcdefg"]
 </script>
 </head>
 <body>
-
+	<h1>Array</h1>
 </body>
 </html>
