@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// in, with, for ~ in
+
+
+var o3 = {
+		
+		name : '마이콜',
+		age : 20,
+		hasProperty: function(property){
+			console.log(this.name);
+		}
+		
+}
+
+console.log(o3.hasProperty('name'));
+console.log(o3.hasProperty('age'));
+console.log(o3.hasProperty('email'));
+
+console.log(o3.hasOwnProperty('name')); // 최상위 부모가 가지고 있는 메소드를 사용한다. hasOwnProperty()
+console.log(o3.hasOwnProperty('age'));
+console.log(o3.hasOwnProperty('email'));
+
+// with
+var o = {
+		
+		name : '둘리',
+		age : 10,
+		info1: function(){
+			console.log(this.name+ " : "+this.age);
+		},
+		
+		info2: function(){
+			with(this){
+				console.log(name+ " : "+age);
+			}
+		},
+		info3: function(){
+			var str = '';
+			for (var prop in this){
+				str += (prop + ":");
+			}
+			console.log(str.substring(0, str.length-1))
+		}
+}
+
+o.info1();
+o.info2();
+o.info3();
+
+var F = function(name, age) {
+	this.name = name;
+	this.age = age;
+}
+var f = new F();
+
+// =========================================
+o = {
+	name: 'yjh',
+	age: 10
+}
+
+//F.apply('yjh', 10, o);
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

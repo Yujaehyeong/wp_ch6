@@ -5,42 +5,68 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 <script>
-
-var myVar;
+var myVar1;
 var myVar2 = null;
-
-console.log(myVar+ ":"+ myVar2)
-
-console.log(myVar == myVar2); // 값만 비교
-console.log(myVar === myVar2); // 값과 type까지 비교
-
-// == (!=, equality, 값의 등치성, 형변환 o)
-console.log("2"==2);
-console.log(true==1);
-console.log('abc'== new String('abc'));
-
-//형변환
-console.log("2" + 2); // int가 string 형태로 형변환됨 22
-console.log(2 + "2"); // int가 string 형태로 형변환됨 22
-console.log(true + 10);
-console.log('abc' + new String('abc'));
-
-
-// ===(!==, identity, 객체동일성, 형변환x)
-console.log("2"===2);
-console.log(true===1);
-console.log('abc'=== new String('abc'));
-
+console.log(myVar1 + ":" + myVar2);
+console.log(myVar1 == myVar2);
+console.log(myVar1 === myVar2);
+// == (!=, equality, 값의 등치성, 형변환o)
+console.log("2" == 2)
+console.log(true == 1)
+console.log('abc' == new String('abc'))
+// === (!==, identity, 객체의 동일성, 형변환x)
+console.log("2" === 2)
+console.log(true === 1)
+console.log('abc' === new String('abc'))
 // 추천:
-// == 연산자를 사용할 때는 엄격하게 형변환을 하여
-// 피연산자의 type을 맞춰준다.
+// == 연산자를 사용할 때는 엄격하게 형변환을 해서
+// 두 피연산자의 타입을 맞춘다.
 str = "5";
 console.log(parseInt(str) == 5);
-
-
+// 변수 범위(Scope)
+// 1. var 사용 여부에 영향을 받는다.
+// 2. 특히 local(함수 내부)에서 var를 사용해서 
+//    변수를 정의하면 local 범위를 가진다.
+var i = 5;
+var f = function(){
+	var i = 20;
+	console.log(i)
+	i = i - 1;
+}
+f();
+console.log(i);
+// 변수에는 무조건 var를 붙힌다.
+// statement
+// js engine이 읽어들어서실행하는 단위
+// \n or ;(세미콜론) 단위로 읽어서 실행한다.
+var s = 'hello world'; console.log(s);
+// 전역(global) 객체  window
+// console.log(s);
+console.log(window.s);
+var o = {}
+o.name = '둘리';
+o.age = {};
+o.age.value = 10;
+o.age.man = 9;
+console.log(window.o);
+console.log(window.o.name);
+console.log(window.o.age);
+console.log(window.o.age.man);
+/* JSON */
+var o2 = {
+	'name': '둘리',		
+	'age': {
+		'value': 10,
+		'man': 9
+	},
+	'show': function(){
+		console.log('...');	
+	}
+}
+	
 </script>
 </head>
 <body>
-	<h1>null VS undefined</h1>
+	<h1>null VS. undefined</h1>
 </body>
 </html>
