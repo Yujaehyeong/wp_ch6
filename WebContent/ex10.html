@@ -6,33 +6,45 @@
 <title>Insert title here</title>
 
 
-<script type="text/javascript">
+<script>
+var now = new Date();
+console.log(now, typeof now);
+
+// 2019년 7월 5일
+// month = current month -1
+var d = new Date(2019, 6, 5);
+console.log(d);
+
+// 2019 7월 5일 12:30:40
+var d = new Date(2019, 6, 5, 12, 30, 40);
+console.log(d);
+
+// 객체 메서드
+console.log(
+		" 년:" + (d.getYear() + 1900)+ '\n'+ 
+		" 월:" + (d.getMonth() + 1)+ '\n'+ 
+		" 일:" + d.getDate() + '\n'+
+		" 요일:" + ['일', '월', '화', '수', '목', '금', '토'][d.getDay()] + '\n'+
+		" 시:" + d.getHours() + '\n'+
+		" 분:" + d.getMinutes() + '\n'+
+		" 초:" + d.getSeconds() + '\n' +
+		" 밀리초:" + d.getMilliseconds() + '\n');
+
+d.setYear(2020);
+console.log(d);
+
+d.setMonth(11); // 12월 세팅
+console.log(d);
 
 
-var displayDate = function(){
-	document.getElementById( "demo" ).innerHTML = Date();
-}
 
-var cleanUp = function(){
-	document.getElementById( "demo" ).innerHTML = "";	
-}
 
-var onLoad = function() {
-	document.getElementById( "myButton" ).onclick = function() {
-		displayDate();
-	}	
-}
+
 </script>
 
 </head>
-<body onload="onLoad()">
-<p>click button!!</p>
-<button id="myButton"
-	onmouseover= "displayDate()"
-	onmouseout= "cleanUp()"
->
-try it
-</button>
-<p id="demo"></p>
+<body>
+
+<h1></h1>
 </body>
 </html>

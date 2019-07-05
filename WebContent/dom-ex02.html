@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	var child = window.open('', '', 'width=300, height =200', true);
+	var width = screen.width;
+	var height = screen.height;
+	
+	console.log(width);
+	console.log(height);
+	
+	child.moveTo(0, 0);
+	child.resizeTo(width, height);
+	
+	setInterval(function () {
+		child.resizeBy(-20,-20);
+		child.moveBy(10, 10);
+	}, 500);
+</script>
+<body>
+<h1>Screen 객체</h1>
+
+
+</body>
+</html>

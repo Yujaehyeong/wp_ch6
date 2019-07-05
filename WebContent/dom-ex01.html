@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+	var s= '';
+	
+	for (var key in window){
+		s+= (key + ':'+ window[key] + '\n');
+	}
+	console.log(s);
+	
+	// 새로운 window 객체생성
+	// yes no , 1/0
+	// location, menubar, resizable, toolbar
+	setTimeout(function () {
+		window.open('popup.html', 'popup', 'width=600, height=400', true);
+	}, 2000);
+	
+	
+</script>
+<body>
+
+
+
+</body>
+</html>
