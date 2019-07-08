@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script>
+	window.onload = function() {
+		
+		
+		var form = document.getElementById('form-login');
+		
+		// DOM Level0 - 이벤트 기본동작 막기
+		form.onsubmit = function () {
+			
+			var email = document.getElementById('email').value;
+			if( email == ''){
+				alert('이메일은 필수 입력항목입니다.');
+				
+				return false;
+			}
+			
+			var password = document.getElementById('password').value;
+			if( password == ''){
+				alert('비밀번호는 필수 입력항목입니다.');
+				return false;
+			}
+			
+			return true; // 모든 내용이 들어간 상태에서 true 하여 form submit 기능 동작하게 함
+			
+		}
+		
+		
+		// DOM Level2 - 이벤트 기본 동작 막기(이유 - ajax 통신을 해야하는 경우)
+		form.addEventListener('submit', function (event) {
+			event.preventDefault();
+			console.log('start log-in with ajax');
+			
+		});
+		
+		
+		
+		// Achor에 적용하기
+		var button = document.getElementById('fetch-data');
+		button.addEventListener('click', function () {
+			event.preventDefault(); // 해당 객체의 기본설정을 막는다. a태그 같은경우 클릭이벤트에 기본적으로 페이지가 리로드되는 이벤트가 있는데 해당기능을 사용하지않음
+			console.log('start fetching....');
+			
+		});
+		
+	}
+</script>
+
+<body>
+	<form id="form-login" method="post" action="login">
+		<label>이메일</label>
+		<br>
+		<input type="text" name="email" id="email">
+		<br>
+		<br>
+		
+		<label>비밀번호</label>
+		<br>
+		<input type="password" name="password" id="password">
+		<br>
+		<br>
+		
+		<input type="submit" value="로그인">
+	</form>
+</body>
+</html>

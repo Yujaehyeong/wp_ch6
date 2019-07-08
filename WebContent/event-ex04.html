@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script>
+	var registerEventHandler = function(element, eventName, handler) {
+		element && 
+		element.attachEvent &&
+		element.attachEvent('on'+eventName, handler); 
+		
+		element && 
+		element.addEventListener &&
+		element.addEventListener(eventName, handler);
+	}
+	
+	window.onload = function() {
+		var header = document.getElementById('header');
+
+		// Multi Event Listener 연결 가능
+		// Observer Pattern 
+		header.addEventListener('click', function() {
+			console.log("click 1");
+		});
+
+		header.addEventListener('click', function() {
+			console.log("click 2");
+		});
+
+		header.addEventListener('click', function() {
+			console.log("click 3");
+		});
+
+	}
+
+	registerEventHandler(header, 'click', function() {
+		console.log('click 4');
+	});
+</script>
+
+<body>
+	<h1 id="header">Header</h1>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script>
+
+/* DOM Level 0: Basic Event Model(고전적인 이벤트 처리, ) */
+	var onclick = function () {
+		console.log("clicked");
+	}
+</script>
+
+<body>
+	
+	<h1 onclick="console.log('clicked');">click1</h1>
+	<h1 onclick="onclick();">click2</h1>
+
+</body>
+</html>

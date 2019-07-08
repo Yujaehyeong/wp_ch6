@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script>
+
+/* DOM Level 0: Basic Event Model(고전적인 이벤트 처리, ) */
+	
+
+window.onload = function () {
+	var button1 = document.getElementById('button-1');
+	var button2 = document.getElementById('button-2');
+	
+	/* 
+	button1.onclick = function (event) {
+		var counter = document.getElementById('counter-1');
+		var count = Number(counter.innerText);
+		counter.innerText = "" + (count + 1);
+		
+	}	 */
+	
+	// DOM Model0은 이벤트 핸들러를 하나만 연결할 수 있다.
+	/* button2.onclick = function (event) {
+		console.log('Another Handler Called');		
+	} */
+	
+	
+	button1.onclick = function (event) {
+		// this == event.target
+		// 이벤트가 일어난 HTML Element 객체
+		
+		var counter = document.getElementById(this.getAttribute('data-counterid').innerText);
+		var count = Number(counter.innerText);
+		counter.innerText = "" + (count + 1);
+		
+	}
+}
+
+
+	
+
+</script>
+
+<body>
+	<button id="button-1" data-counterid='counter-1'>button 1</button>
+	<button id="button-2" data-counterid='counter-2'>button 2</button>
+	<h1>counter1: <span id="counter-1">0</span> </h1>
+	<h1>counter2: <span id="counter-2">0</span> </h1>
+
+</body>
+</html>

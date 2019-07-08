@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	div, h2, span { border:  solid; black;  1px; }
+</style>
+
+</head>
+
+<script>
+
+	window.onload = function () {
+		
+		//Event Bubbling
+		document.getElementById('outer-div').addEventListener('click', function () {
+			console.log('outer-div');
+		});
+		
+		document.getElementById('inner-div').addEventListener('click', function (e) {
+			
+			// cross browser
+			// e == null -> IE인 경우, 버전은 확실히 모름
+			// 
+			var event = e || window.event;
+			
+			// 이벤트 전달 막기
+			event.cancelBubbling = true; // IE 이벤트 전달막는법
+			event.stopPropagation && event.stopPropagation() // others 이벤트 전달 막는법 (표준)
+			
+			
+			console.log('inner-div');
+			
+		});
+		
+		document.getElementById('header').addEventListener('click', function () {
+			console.log('header');
+		});
+		
+		document.getElementById('text').addEventListener('click', function () {
+			console.log('text');
+		});
+	}
+</script>
+
+<body>
+
+	<h1>Event Propagation(Bubbling)</h1>
+
+	<div id="outer-div" style="background-color: #00f">
+		<div id="inner-div" style="background-color: #0f0">
+			<h2 id="header" style="background-color: #f00">
+				<span id="text" style="background-color: #333">text</span>
+			</h2>
+		</div>
+	
+	</div>
+
+</body>
+</html>
